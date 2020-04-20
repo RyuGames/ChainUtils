@@ -109,7 +109,7 @@
 		7F360B9923457B6600E5D172 /* OntMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OntMonitorTests.swift; sourceTree = "<group>"; };
 		7F66581622AF489B00472335 /* neoutils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = neoutils.framework; sourceTree = "<group>"; };
 		7F725CE721FF04CA00850C2D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		7FD0FC252216F99400F52C0F /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Wallet.swift; path = ../Wallets/Wallet.swift; sourceTree = "<group>"; };
+		7FD0FC252216F99400F52C0F /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		7FD0FC272216FA8000F52C0F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7FD0FC2B2216FB3300F52C0F /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		7FD3E49C2295AB3A004A136B /* OntMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OntMonitor.swift; sourceTree = "<group>"; };
