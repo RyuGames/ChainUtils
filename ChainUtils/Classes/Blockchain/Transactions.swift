@@ -48,18 +48,6 @@ private func buildOntologyInvocationTransactionHelper(contractHash: String, meth
     }
 }
 
-private func ontologyInvokeHelper(endpoint: String, contractHash: String, method: String, args: [String: [[String: Any]]], gasPrice: Int, gasLimit: Int, wif: String, payer: String) -> String {
-    do {
-        let data = try JSONSerialization.data(withJSONObject: args)
-        let arguments = String(data: data, encoding: .utf8)
-        let err = NSErrorPointer(nilLiteral: ())
-        let res = NeoutilsOntologyInvoke(endpoint, contractHash, method, arguments, gasPrice, gasLimit, wif, payer, err)
-        return res
-    } catch {
-        return ""
-    }
-}
-
 public func buildOntologyInvocationTransaction(contractHash: String, method: String, args: [NVMParameter], gasPrice: Int = 0, gasLimit: Int = 0, wif: String, payer: String = "") -> String {
     let params = convertParamArray(params: args)
     let p = payer == "" ? addressFromWif(wif: wif) ?? "" : payer
