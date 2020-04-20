@@ -9,6 +9,7 @@ width="128px;">
 Light weight blockchain wallet SDK for iOS
 </p>
 
+[![Build Status](https://travis-ci.com/RyuGames/ChainUtils.svg?branch=master)](https://travis-ci.com/RyuGames/ChainUtils)
 [![codecov](https://codecov.io/gh/RyuGames/ChainUtils/branch/master/graph/badge.svg)](https://codecov.io/gh/RyuGames/ChainUtils)
 [![Version](https://img.shields.io/cocoapods/v/ChainUtils.svg?style=flat)](https://cocoapods.org/pods/ChainUtils)
 [![License](https://img.shields.io/cocoapods/l/ChainUtils.svg?style=flat)](https://cocoapods.org/pods/ChainUtils)
@@ -16,13 +17,11 @@ Light weight blockchain wallet SDK for iOS
 
 - [Overview](#overview)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
 
-`ChainUtils` is a light weight version of [ChainUtils](https://github.com/RyuGames/neovm-utils). 
+`ChainUtils` is a light weight version of [neovmUtils](https://github.com/RyuGames/neovm-utils). 
 
 ## Installation
 
