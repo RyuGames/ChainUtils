@@ -1,6 +1,6 @@
 <p align="center">
 <img
-src="https://s3.amazonaws.com/ryu-logos/RyuIcon128x128.png"
+src="https://s3.amazonaws.com/ryu-logos/RyuIcon128x128.png?"
 width="128px;">
 </p>
 
