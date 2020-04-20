@@ -22,7 +22,7 @@ Light weight blockchain wallet SDK for iOS
 
 ## Overview
 
-`ChainUtils` is a light weight version of [neovmUtils](https://github.com/RyuGames/neovm-utils). 
+`ChainUtils` is a light weight version of [ChainUtils](https://github.com/RyuGames/neovm-utils). 
 
 ## Installation
 
@@ -56,7 +56,7 @@ end
 
 `ChainUtils` requires:
 - [NetworkUtils](https://github.com/RyuGames/NetworkUtils) - [axios](https://github.com/axios/axios) style HTTP request package for Swift
-  - `SwiftPromises` - the Ryu [promises](https://github.com/RyuGames/SwiftPromises) package for Swift
+  - [SwiftPromises](https://github.com/RyuGames/SwiftPromises) - the Ryu promises package
 
 ## License
 
