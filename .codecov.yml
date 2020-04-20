@@ -1,0 +1,11 @@
+coverage:
+  precision: 2
+  round: down
+  range: 30...75
+
+  status:
+    project: true
+
+  ignore:
+    - Tests
+    - ChainUtils/Classes/Sockets
