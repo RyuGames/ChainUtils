@@ -17,8 +17,6 @@ Light weight blockchain wallet SDK for iOS
 
 - [Overview](#overview)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
