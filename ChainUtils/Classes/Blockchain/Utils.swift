@@ -3,7 +3,7 @@
 //  ChainUtils
 //
 //  Created by Wyatt Mufson on 2/15/19.
-//  Copyright © 2020 Ryu Blockchain Technologies. All rights reserved.
+//  Copyright © 2020 Ryu Games. All rights reserved.
 //
 
 import Foundation
