@@ -1,10 +1,10 @@
 PODS:
-  - NetworkUtils (1.1.0):
-    - SwiftPromises (= 1.1.0)
-  - SwiftPromises (1.1.0)
+  - NetworkUtils (2.0.0):
+    - SwiftPromises (= 2.0.0)
+  - SwiftPromises (2.0.0)
 
 DEPENDENCIES:
-  - NetworkUtils (= 1.1.0)
+  - NetworkUtils (= 2.0.0)
 
 SPEC REPOS:
   trunk:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - SwiftPromises
 
 SPEC CHECKSUMS:
-  NetworkUtils: 98e59b40bcd0cb1c2ecf6f12e66348c2d068b588
-  SwiftPromises: 791aca45ea7a946f5d30163d70fc65a55e96c688
+  NetworkUtils: 67433676b1254314c6df0131c35ce25fbd7eb675
+  SwiftPromises: 9dcac22fad4fd7221fe413d69682228cde84a9a1
 
-PODFILE CHECKSUM: 319c30ff4958fc2c9445c3a64c3152b5e9b5d684
+PODFILE CHECKSUM: e5c5b99c1d8af1c483b86f52be93d967ace53406
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
