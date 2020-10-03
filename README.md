@@ -6,7 +6,7 @@ width="128px;">
 
 <h1 align="center">ChainUtils</h1>
 <p align="center">
-Light weight blockchain wallet SDK for iOS
+Light weight encryption wallet SDK for iOS
 </p>
 
 [![Build Status](https://travis-ci.com/RyuGames/ChainUtils.svg?branch=master)](https://travis-ci.com/RyuGames/ChainUtils)
