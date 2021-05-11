@@ -21,18 +21,9 @@ public final class Wallet: NSObject, Codable {
     public var neoPrivateKey: Data? {
         return neoWallet?.privateKey
     }
-    public var locked: Bool = false
-    public var key: String = ""
-    public let algorithm: String = "ECDSA"
-    public let parameters: [String: String] = ["curve": "P-256"]
-    public var label: String = ""
-    public let signatureScheme: String = "SHA256withECDSA"
-    public let encAlg: String = "aes-256-gcm"
-    public var isDefault: Bool = false
 
-    public init(label: String = "", password: String? = nil, address: String, wif: String, privateKey: Data, publicKey: Data, neoWallet: NeoutilsWallet) {
+    public init(address: String, wif: String, privateKey: Data, publicKey: Data, neoWallet: NeoutilsWallet) {
         super.init()
-        self.label = label
         self.address = address
         self.wif = wif
         self.privateKey = privateKey
@@ -40,19 +31,12 @@ public final class Wallet: NSObject, Codable {
         self.privateKeyString = privateKey.bytesToHex
         self.publicKeyString = publicKey.bytesToHex
         self.neoWallet = neoWallet
-        self.locked = false
-        self.key = ""
-        if let password = password {
-            _ = self.lock(password: password)
-        }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case lockKey = "lockKey"
         case address = "address"
         case publicKey = "publicKey"
         case publicKeyString = "publicKeyString"
-        case locked = "locked"
         case wif = "wif"
         case privateKey = "privateKey"
         case privateKeyString = "privateKeyString"
@@ -60,11 +44,9 @@ public final class Wallet: NSObject, Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(key, forKey: .lockKey)
         try container.encode(address, forKey: .address)
         try container.encode(publicKey, forKey: .publicKey)
         try container.encode(publicKeyString, forKey: .publicKeyString)
-        try container.encode(locked, forKey: .locked)
         try container.encode(wif, forKey: .wif)
         try container.encode(privateKey, forKey: .privateKey)
         try container.encode(privateKeyString, forKey: .privateKeyString)
@@ -72,54 +54,15 @@ public final class Wallet: NSObject, Codable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.key = try container.decode(String.self, forKey: .lockKey)
         self.address = try container.decode(String.self, forKey: .address)
         self.publicKey = try container.decode(Data.self, forKey: .publicKey)
         self.publicKeyString = try container.decode(String.self, forKey: .publicKeyString)
-        self.locked = try container.decode(Bool.self, forKey: .locked)
         self.wif = try container.decode(String.self, forKey: .wif)
         self.privateKey = try container.decode(Data.self, forKey: .privateKey)
         self.privateKeyString = try container.decode(String.self, forKey: .privateKeyString)
         if self.wif != "" {
             self.neoWallet = NeoutilsGenerateFromWIF(self.wif, NSErrorPointer(nilLiteral: ()))
         }
-    }
-
-    public func lock(password: String) -> Bool {
-        if locked {
-            return false
-        }
-
-        guard let enc = newEncryptedKey(wif: self.wif, password: password) else {
-            return false
-        }
-
-        self.key = enc
-        self.locked = true
-        self.wif = ""
-        self.privateKeyString = ""
-        self.privateKey = Data()
-        self.neoWallet = nil
-        return true
-    }
-
-    public func unlock(password: String) -> Bool {
-        if !locked {
-            return false
-        }
-
-        let wifTry = wifFromEncryptedKey(encrypted: self.key, password: password)
-        guard let wal = walletFromWIF(wif: wifTry) else {
-            return false
-        }
-
-        self.key = ""
-        self.locked = false
-        self.wif = wal.wif
-        self.privateKeyString = wal.privateKeyString
-        self.privateKey = wal.privateKey
-        self.neoWallet = wal.neoWallet
-        return true
     }
 
     public func toData() -> Data? {
@@ -202,10 +145,8 @@ public enum KeyType {
 
 // MARK: - PUBLIC FUNCTIONS
 
-public func newWallet(label: String = "", password: String? = nil) -> Wallet {
-    let wallet = walletFromOntAccount(label: label,
-                                      password: password,
-                                      ontAccount: NeoutilsONTCreateAccount()!)
+public func newWallet() -> Wallet {
+    let wallet = walletFromOntAccount(ontAccount: NeoutilsONTCreateAccount()!)
     return wallet
 }
 
@@ -291,11 +232,9 @@ private func sha256(_ data: Data) -> Data {
     return res as Data
 }
 
-private func walletFromOntAccount(label: String = "", password: String? = nil, ontAccount: NeoutilsONTAccount) -> Wallet {
+private func walletFromOntAccount(ontAccount: NeoutilsONTAccount) -> Wallet {
     let err = NSErrorPointer(nilLiteral: ())
-    let w = Wallet(label: label,
-                   password: password,
-                   address: ontAccount.address,
+    let w = Wallet(address: ontAccount.address,
                    wif: ontAccount.wif,
                    privateKey: ontAccount.privateKey!,
                    publicKey: ontAccount.publicKey!,

@@ -45,27 +45,6 @@ class WalletTests: XCTestCase {
         XCTAssertNil(nWallet)
     }
 
-    func testBase58() {
-        let address = newWallet().address
-        let bad = address + "a"
-        let hash = address.hashFromAddress()
-        let badHash = bad.hashFromAddress()
-        XCTAssertNotEqual("", hash)
-        XCTAssertEqual("", badHash)
-        XCTAssertEqual("", "BA".hashFromAddress())
-        XCTAssertEqual("", "BAX".hashFromAddress())
-        XCTAssertEqual("", "BADA".hashFromAddress())
-        XCTAssertEqual("", "BA0102".hashFromAddress())
-        XCTAssertEqual("", "BA234234234".hashFromAddress())
-        XCTAssertEqual("", "a12312B123123123A".hashFromAddress())
-        XCTAssertEqual("", "a12312B123123123Aa12312B123123123A".hashFromAddress())
-        XCTAssertEqual("", "123242345235".hashFromAddress())
-        XCTAssertEqual("", "DASDASDASDADA".hashFromAddress())
-        XCTAssertEqual("", "EASEAESASEASEASE".hashFromAddress())
-        XCTAssertEqual("", "D\(address)".hashFromAddress())
-        XCTAssertEqual("", "1\(address)".hashFromAddress())
-    }
-
     func testComparePrivateKeys() {
         for _ in 0..<5 {
             let wallet = newWallet()
@@ -199,89 +178,6 @@ class WalletTests: XCTestCase {
         XCTAssertTrue(exampleWallet.address.isValidAddress)
     }
 
-    func testLockedWallet() {
-        let a = newWallet()
-        let asig = a.signMessage(message: "Welcome")
-        XCTAssertNotNil(asig)
-        let originalData = a.toData()
-        let locked = a.lock(password: "123")
-        XCTAssertTrue(locked)
-        let second = a.lock(password: "456")
-        XCTAssertFalse(second)
-        let sig = a.signMessage(message: "Welcome")
-        XCTAssertNil(sig)
-        let signed = a.signData(data: originalData ?? Data())
-        XCTAssertNil(signed)
-        let publicKey = newWallet().publicKey
-        let publicKeyString = newWallet().publicKeyString
-        let shared = a.computeSharedSecret(publicKey: publicKey)
-        XCTAssertNil(shared)
-        let sharedString = a.computeSharedSecret(publicKey: publicKeyString)
-        XCTAssertNil(sharedString)
-        let enc = a.privateEncrypt(message: "XXX")
-        XCTAssertNil(enc)
-        let dec = a.privateDecrypt(encrypted: "XXX")
-        XCTAssertNil(dec)
-        let lockedData = a.toData()
-        XCTAssertNotEqual(originalData, lockedData)
-        let unlocked1 = a.unlock(password: "1234")
-        XCTAssertFalse(unlocked1)
-        let unlocked2 = a.unlock(password: "123")
-        XCTAssertTrue(unlocked2)
-        let unlocked3 = a.unlock(password: "123")
-        XCTAssertFalse(unlocked3)
-    }
-
-    func testLocking() {
-        let wallet = newWallet()
-        let wif = wallet.wif
-        let password = "password"
-
-        XCTAssertEqual(wif, wallet.wif)
-        XCTAssertFalse(wallet.locked)
-        let locked = wallet.lock(password: password)
-        XCTAssertTrue(locked)
-        XCTAssertNotEqual(wif, wallet.wif)
-        XCTAssertEqual("", wallet.wif)
-        XCTAssertTrue(wallet.locked)
-
-        guard let data = try? JSONEncoder().encode(wallet) else {
-            XCTFail()
-            return
-        }
-
-        do {
-            let w = try JSONDecoder().decode(Wallet.self, from: data)
-            XCTAssertNotEqual(wif, w.wif)
-            XCTAssertEqual("", w.wif)
-            XCTAssertTrue(w.locked)
-            XCTAssertTrue(same(a: wallet, b: w))
-
-            let unlocked = w.unlock(password: password)
-            XCTAssertTrue(unlocked)
-            XCTAssertEqual(wif, w.wif)
-            XCTAssertNotEqual("", w.wif)
-            XCTAssertFalse(w.locked)
-            XCTAssertFalse(same(a: wallet, b: w))
-
-            let unlocked2 = wallet.unlock(password: password)
-            XCTAssertTrue(unlocked2)
-            XCTAssertEqual(wif, wallet.wif)
-            XCTAssertNotEqual("", wallet.wif)
-            XCTAssertFalse(wallet.locked)
-            XCTAssertTrue(same(a: wallet, b: w))
-        } catch {
-            XCTFail("\(error)")
-        }
-    }
-
-    func testLockingIncorrectly() {
-        let a = newWallet()
-        a.wif = ""
-        let locked = a.lock(password: "123")
-        XCTAssertFalse(locked)
-    }
-
     func testNEP2() {
         let password = "12345678"
         guard let e = newEncryptedKey(wif: exampleWallet.wif, password: password) else {
@@ -291,17 +187,6 @@ class WalletTests: XCTestCase {
 
         let w = wifFromEncryptedKey(encrypted: e, password: password)
         XCTAssertTrue(w == exampleWallet.wif)
-    }
-
-    func testNewWallet() {
-        let label = "Hello there!"
-        let password = "12345"
-        let wallet = newWallet(label: label, password: password)
-        XCTAssertTrue(wallet.locked)
-        XCTAssertEqual(wallet.wif, "")
-        XCTAssertEqual(wallet.label, label)
-        let unlocked = wallet.unlock(password: password)
-        XCTAssertTrue(unlocked)
     }
 
     func testPublicKeyFrom() {
@@ -397,4 +282,10 @@ class WalletTests: XCTestCase {
         XCTAssertNil(enc2)
     }
 
+    func testWallets() {
+        for _ in 0..<3 {
+            let wallet = newWallet()
+            print("\"\(wallet.address)\"")
+        }
+    }
 }
