@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ChainUtils'
-  s.version          = '2.0.1'
+  s.version          = '2.0.2'
   s.summary          = 'Light weight encryption SDK for iOS'
 
   s.homepage         = 'https://github.com/RyuGames/ChainUtils'
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'ChainUtils/Classes/**/*'
   s.vendored_frameworks = 'neoutils.framework'
-  s.dependency 'NetworkUtils', '2.0.0'
+  s.dependency 'NetworkUtils', '2.0.1'
 
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }

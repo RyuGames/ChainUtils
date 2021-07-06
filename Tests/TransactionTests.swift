@@ -3,7 +3,7 @@
 //  ChainUtils_Tests
 //
 //  Created by Wyatt Mufson on 10/2/19.
-//  Copyright © 2020 Ryu Games. All rights reserved.
+//  Copyright © 2021 Ryu Games. All rights reserved.
 //
 
 import XCTest
