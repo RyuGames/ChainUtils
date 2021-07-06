@@ -15,14 +15,12 @@
 		7FD0FC262216F99400F52C0F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0FC252216F99400F52C0F /* Wallet.swift */; };
 		7FD0FC282216FA8000F52C0F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0FC272216FA8000F52C0F /* Utils.swift */; };
 		7FD0FC2C2216FB3300F52C0F /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0FC2B2216FB3300F52C0F /* Transactions.swift */; };
-		CB7096A4C8543261CB5A769F /* Pods_ChainUtils_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFBE7304F5AD6F5D5DFF082 /* Pods_ChainUtils_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		11D54E3E6F1A2BDC166CA1C7 /* ChainUtils.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = ChainUtils.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACE51AFB9204008FA782 /* ChainUtils_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChainUtils_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BFBE7304F5AD6F5D5DFF082 /* Pods_ChainUtils_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChainUtils_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2A74F4244E27C3006D0FEA /* NVMParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVMParameter.swift; sourceTree = "<group>"; };
 		7F360B8F2345790A00E5D172 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
 		7F360B912345798E00E5D172 /* TransactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTests.swift; sourceTree = "<group>"; };
@@ -31,9 +29,7 @@
 		7FD0FC252216F99400F52C0F /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		7FD0FC272216FA8000F52C0F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7FD0FC2B2216FB3300F52C0F /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
-		978E2A8FFCF4292782A0F70E /* Pods-ChainUtils_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChainUtils_Tests.release.xcconfig"; path = "Target Support Files/Pods-ChainUtils_Tests/Pods-ChainUtils_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BC6F233EC5E38887EC244709 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D244EF07CF7E18DC6567556F /* Pods-ChainUtils_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChainUtils_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ChainUtils_Tests/Pods-ChainUtils_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2BFC57897958F36981CB9D5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,22 +40,12 @@
 			files = (
 				7F725CE821FF04CA00850C2D /* Foundation.framework in Frameworks */,
 				7F66581722AF489B00472335 /* neoutils.framework in Frameworks */,
-				CB7096A4C8543261CB5A769F /* Pods_ChainUtils_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00D496FDF7F8B99AEE775176 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D244EF07CF7E18DC6567556F /* Pods-ChainUtils_Tests.debug.xcconfig */,
-				978E2A8FFCF4292782A0F70E /* Pods-ChainUtils_Tests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -68,7 +54,6 @@
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				BB75E40C24537D4E61108C25 /* Frameworks */,
-				00D496FDF7F8B99AEE775176 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,7 +126,6 @@
 			children = (
 				7F66581622AF489B00472335 /* neoutils.framework */,
 				7F725CE721FF04CA00850C2D /* Foundation.framework */,
-				6BFBE7304F5AD6F5D5DFF082 /* Pods_ChainUtils_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,10 +137,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "ChainUtils_Tests" */;
 			buildPhases = (
-				E4A1AA55CAECD878D40BE42C /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
-				5CDCEAD62C5570969FAC1FF9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,7 +156,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Ryu Blockchain Technologies";
 				TargetAttributes = {
 					607FACE41AFB9204008FA782 = {
@@ -201,51 +183,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5CDCEAD62C5570969FAC1FF9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ChainUtils_Tests/Pods-ChainUtils_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/NetworkUtils/NetworkUtils.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftPromises/SwiftPromises.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NetworkUtils.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftPromises.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChainUtils_Tests/Pods-ChainUtils_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4A1AA55CAECD878D40BE42C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ChainUtils_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		607FACE11AFB9204008FA782 /* Sources */ = {
@@ -288,6 +225,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -350,6 +288,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -383,7 +322,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D244EF07CF7E18DC6567556F /* Pods-ChainUtils_Tests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
@@ -418,7 +356,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 978E2A8FFCF4292782A0F70E /* Pods-ChainUtils_Tests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
